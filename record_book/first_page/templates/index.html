@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Title{% endblock title %}
+
+{% block content %}
+	<div class="container main-content">
+		<section class="section">
+			<h1 class="main-head">Портал Зачётка.РУ</h1>
+			<form action="{% url 'info' %}" method="get">
+				{% csrf_token %}
+				<button class="btn">
+					<div class="btn-content">ЛИЧНЫЙ КАБИНЕТ</div>
+					<div>РЕГИСТРАЦИЯ</div>
+				</button>
+			</form>
+			<div class="main-text">
+				<p>Портал Зачётка.РУ обеспечивает:</p>
+				<ul>
+					<li>доступ к информации ВУЗА</li>
+					<li>электронное внутривузовское взаимодействие</li>
+					<li>процесс групповой работы</li>
+					<li>организацию личного делового пространства пользователя</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<div class="container">
+		<section class="section contacts">
+			<h1 class="contacts-head">Контакты</h1>
+			<div class="info">
+				<ul class="ul-info">
+					<li class="li-info">
+						<img src="{% static 'img/gps.png' %}" alt="Местоположение" class="geo">
+						<h4>Найти нас вы можете:</h4>
+						<p class="li-info-text">Республика Дагестан, ул.Пушкина дом Колотушкино.</p>
+					</li>
+					<li class="li-info">
+						<img src="{% static 'img/phone.png' %}" alt="Телефон" class="phone">
+						<h4>Телефон</h4>
+						<p class="li-info-text"><a href="tel:+79210001210">+7 (921) 000-12-10</a></p>
+						<p class="li-info-text"><a href="tel:+71232223300">+7 (123) 222-33-00</a></p>
+					</li>
+					<li class="li-info">
+						<img src="{% static 'img/mail.png' %}" alt="Почта" class="email">
+						<h4>Email</h4>
+						<p class="li-info-text"><a href="mailto:bebra@mail.ru">bebra@mail.ru</a></p>
+						<p class="li-info-text"><a href="mailto:ucheba@petrsu.ru">ucheba@petrsu.ru</a></p>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+{% endblock content %}
