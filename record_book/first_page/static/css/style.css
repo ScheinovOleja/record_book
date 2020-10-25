@@ -130,7 +130,3 @@ h4 {
 .footer-content-li:not(:first-child){
     margin-left: 15px;
 }
-
-.head {
-    text-align: center;
-}

@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'first_page',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -80,9 +79,6 @@ DATABASES = {
     }
 }
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -116,6 +112,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 
