@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style_students.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block title %}Студент{% endblock title %}
+
+{% block content %}
+	<div class="container">
+		<h1 class="head"></h1>
+		<table class="student-info">
+			<tr class="student-tr">
+				<td class="student-td">Item 1</td>
+				<td class="student-td">Item 3</td>
+			</tr>
+			<tr class="student-tr">
+				<td class="student-td">Item 2</td>
+				<td class="student-td">Item 4</td>
+			</tr>
+		</table>
+	</div>
+{% endblock content %}

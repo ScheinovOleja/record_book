@@ -15,6 +15,10 @@ def login(request):
     return render(request, 'login.html', {})
 
 
+def test(request):
+    return render(request, 'students.html', {})
+
+
 class ViewInfo(generic.ListView):
     model = StudentBook
     template_name = 'assessments.html'
