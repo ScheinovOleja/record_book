@@ -1,0 +1,13 @@
+.student-td{
+    border: 1px solid black;
+}
+
+.student-info{
+    border: 1px solid black;
+    background-color: #f5f5dc ;
+    padding: 7px;
+}
+
+.personal-info{
+    color: red;
+}
