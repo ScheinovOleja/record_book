@@ -15,11 +15,16 @@ class StudentBook(models.Model):
                                 verbose_name='Учитель')
     control = models.ForeignKey('ControlInfo', null=True, on_delete=models.CASCADE,
                                 verbose_name='Вид контроля')
-    assessment = models.ForeignKey('AssessmentInfo', null=True, on_delete=models.CASCADE,
-                                   verbose_name='Оценка')
+    assessment = models.IntegerField(
+        default=1,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(1)
+        ]
+    )
 
     def __str__(self):
-        return str(self.student)
+        return f'{str(self.student)} - {str(self.discipline)}'
 
 
 class StudentInfo(models.Model):
@@ -48,20 +53,7 @@ class TeacherInfo(models.Model):
 
 
 class ControlInfo(models.Model):
-    control = models.CharField(max_length= 10, default=True, verbose_name='Зачет/Экзамен')
+    control = models.CharField(max_length=10, default=True, verbose_name='Зачет/Экзамен')
 
     def __str__(self):
         return self.control
-
-
-class AssessmentInfo(models.Model):
-    assessment = models.IntegerField(
-        default=1,
-        validators=[
-            MaxValueValidator(5),
-            MinValueValidator(1)
-        ]
-    )
-
-    def __str__(self):
-        return str(self.assessment)

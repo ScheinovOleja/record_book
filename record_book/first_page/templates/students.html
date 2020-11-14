@@ -10,17 +10,21 @@
 {% block title %}Студент{% endblock title %}
 
 {% block content %}
-	<div class="container">
-		<h1 class="head"></h1>
+	<div class="section">
+		<h1 class="personal-info">Личная информация</h1>
+
 		<table class="student-info">
 			<tr class="student-tr">
-				<td class="student-td">Item 1</td>
-				<td class="student-td">Item 3</td>
+				<td class="student-td">Фамилия</td>
+				{% for info in information %}
+				<td class="student-td">{{ info.surname }}</td>
+				{% endfor %}
 			</tr>
 			<tr class="student-tr">
-				<td class="student-td">Item 2</td>
+				<td class="student-td">Имя</td>
 				<td class="student-td">Item 4</td>
 			</tr>
 		</table>
+
 	</div>
 {% endblock content %}
