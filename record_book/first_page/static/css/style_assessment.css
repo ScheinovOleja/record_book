@@ -1,0 +1,125 @@
+
+a1{
+	font-family: Myriad Pro;
+	font-size: 54px;
+	color: #0a0a0a;
+	text-align:center;
+	font-weight: lighter;
+}
+h2{
+	font-family: Myriad Pro;
+	font-size: 20px;
+	color: #0a0a0a;
+	text-align:center;
+	font-weight: lighter;
+
+}
+
+/*Линия перед таблицей*/
+.hr-shadow {
+
+	padding: 0;
+	height: 10px;
+	border: none;
+	border-top: 1px solid #333;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+	margin: 0 auto;
+}
+a.knopka {
+  color: #000000; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(47,28,228); /* фон кнопки */
+  padding: 0 5px 0; /* отступ от текста */
+	/*  сверху отступ 10px       */
+  /*  слева и справа отступ 3% */
+  /*  снизу отступ 20px        */
+/*border-radius: 5px;*/ /* Уголки */
+border-radius: 5px 5px 0 0;
+	outline: none; /* убирать контур в Mozilla */
+}
+a.knopka:hover { background: rgb(0,144,255); } /* при наведении курсора мышки */
+a.knopka:active { background: rgb(0,144,255); } /* при нажатии */
+/*зачетная книжка*/
+.container11 {
+	width: 100%;
+	max-width: 425px;
+	max-height:60px;
+	padding: 0;
+	margin-top: 40px;
+	margin-left: auto;
+    margin-right: auto
+}
+
+/*линия под зачетной книжкой*/
+.container6 {
+	width: 100%;
+	max-width: 500px;
+	max-height: 5px;
+    margin: 0 auto;
+	padding: 0;
+}
+/*курс*/
+.container2 {
+	margin-top: 45px;
+	width: 100%;
+	max-width: 1142px;
+	max-height: 20px;
+	padding: 0;
+}
+.container3 {
+	width: 100%;
+	max-width: 1145px;
+	max-height: 670px;
+  margin: 0 auto;
+	padding: 0;
+}
+.container4 {
+
+	width: 100%;
+	max-width: 1145px;
+	max-height: 670px;
+  margin: 0 ;
+	padding: 0;
+}
+/*1,2 семестр*/
+.container5 {
+
+	width: 100%;
+	max-width: 1145px;
+	max-height: 50px;
+  margin: 0 auto;
+	padding: 0;
+}
+
+.table {
+	    width: 100%; /* Ширина таблицы в процентах */
+	   }
+	   .col1 {
+	    width: 290px; /* Ширина ячейки */
+	   }
+		 .col2 {
+	    width: 185px; /* Ширина ячейки */
+	   }
+		 .col3 {
+	    width: 225px; /* Ширина ячейки */
+	   }
+		 .col4 {
+	    width: 205px; /* Ширина ячейки */
+	   }
+		 .col5 {
+	    width: 240px; /* Ширина ячейки */
+
+	   }
+#table thead tr:nth-child(odd){
+		 		 	background: #d5d2fa;
+		 		 }
+		 /* Нечетные строки */
+#table tbody tr:nth-child(odd){
+		 	background:#fff;
+		 }
+
+		 /* Четные строки */
+#table tbody tr:nth-child(even){
+		 	background:#d5d2fa ;
+		 }
