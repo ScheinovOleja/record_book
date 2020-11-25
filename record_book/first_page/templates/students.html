@@ -15,128 +15,140 @@
 		<table  class="student-info">
 			<tr class="student-tr">
                 <td class="student-td">Фамилия  </td>
-				<td class="student-td">Item 3</td>
+				<td class="student-td">{{ information.name }}</td>
 			</tr>
 			<tr class="student-tr">
                 <td class="student-td">Имя</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.surname }}</td>
 			</tr>
             <tr class="student-tr">
                 <td class="student-td">Отчество</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.patronymic }}</td>
 			</tr>
             <tr class="student-tr">
                 <td class="student-td">Дата рождения</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.birthday }}</td>
 			</tr>
             <tr class="student-tr">
                 <td class="student-td">Пол</td>
-				<td class="student-td">Item 4</td>
+				{% if information.sex %}
+					<td class="student-td">М</td>
+				{% else %}
+					<td class="student-td">Ж</td>
+				{% endif %}
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Отношение к воинской службе</td>
-				<td class="student-td">Item 4</td>
+				{% if information.military %}
+					<td class="student-td">Призывник</td>
+				{% else %}
+					<td class="student-td">Не призывник</td>
+				{% endif %}
 			</tr>
 		</table>
     <h1 class="personal-info">Учебная деятельность</h1>
 		<table class="student-info">
 			<tr class="student-tr">
 				<td class="student-td">Регистрационный номер</td>
-				<td class="student-td">Item 3</td>
+				<td class="student-td">{{ information.education_activity.reg_num }}</td>
 			</tr>
 			<tr class="student-tr">
 				<td class="student-td">Статус</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.education_activity.status }}</td>
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Категория зачисления</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.education_activity.category }}</td>
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Институт</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.education_activity.institute }}</td>
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Направление подготовки</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.education_activity.direction }}</td>
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Форма обучения</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.education_activity.forms_study }}</td>
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Курс</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.education_activity.course }}</td>
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Группа</td>
-				<td class="student-td">Item 4</td>
+				<td class="student-td">{{ information.education_activity.group }}</td>
 			</tr>
             <tr class="student-tr">
 				<td class="student-td">Стипендия</td>
-				<td class="student-td">Item 4</td>
+				{% if information.education_activity.scholarship %}
+					<td class="student-td">Получает</td>
+				{% else %}
+					<td class="student-td">Не получает</td>
+				{% endif %}
 			</tr>
 		</table>
-    <h1 class="personal-info">Удостоверение личности</h1>
-		<table class="student-info">
-			<tr class="student-tr">
-				<td class="student-td">Тип документа</td>
-				<td class="student-td">Item 3</td>
-			</tr>
-			<tr class="student-tr">
-				<td class="student-td">Серия</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-            <tr class="student-tr">
-				<td class="student-td">Номер</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-            <tr class="student-tr">
-				<td class="student-td">Дата выдачи</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-            <tr class="student-tr">
-				<td class="student-td">Кем выдан</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-		</table>
-    <h1 class="personal-info">Контактная информация</h1>
-		<table class="student-info">
-			<tr class="student-tr">
-				<td class="student-td">Домашний адрес</td>
-				<td class="student-td">Item 3</td>
-			</tr>
-			<tr class="student-tr">
-				<td class="student-td">Телефон</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-            <tr class="student-tr">
-				<td class="student-td">Адрес общежития</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-		</table>
-    <h1 class="personal-info">Образование</h1>
-		<table class="student-info">
-			<tr class="student-tr">
-				<td class="student-td">Учебное заведение</td>
-				<td class="student-td">Item 3</td>
-			</tr>
-			<tr class="student-tr">
-				<td class="student-td">Тип документа</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-            <tr class="student-tr">
-				<td class="student-td">Тип образования</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-            <tr class="student-tr">
-				<td class="student-td">Медаль(наличие)</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-            <tr class="student-tr">
-				<td class="student-td">Год окончания</td>
-				<td class="student-td">Item 4</td>
-			</tr>
-		</table>
+{#    <h1 class="personal-info">Удостоверение личности</h1>#}
+{#		<table class="student-info">#}
+{#			<tr class="student-tr">#}
+{#				<td class="student-td">Тип документа</td>#}
+{#				<td class="student-td">Item 3</td>#}
+{#			</tr>#}
+{#			<tr class="student-tr">#}
+{#				<td class="student-td">Серия</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#            <tr class="student-tr">#}
+{#				<td class="student-td">Номер</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#            <tr class="student-tr">#}
+{#				<td class="student-td">Дата выдачи</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#            <tr class="student-tr">#}
+{#				<td class="student-td">Кем выдан</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#		</table>#}
+{#    <h1 class="personal-info">Контактная информация</h1>#}
+{#		<table class="student-info">#}
+{#			<tr class="student-tr">#}
+{#				<td class="student-td">Домашний адрес</td>#}
+{#				<td class="student-td">Item 3</td>#}
+{#			</tr>#}
+{#			<tr class="student-tr">#}
+{#				<td class="student-td">Телефон</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#            <tr class="student-tr">#}
+{#				<td class="student-td">Адрес общежития</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#		</table>#}
+{#    <h1 class="personal-info">Образование</h1>#}
+{#		<table class="student-info">#}
+{#			<tr class="student-tr">#}
+{#				<td class="student-td">Учебное заведение</td>#}
+{#				<td class="student-td">Item 3</td>#}
+{#			</tr>#}
+{#			<tr class="student-tr">#}
+{#				<td class="student-td">Тип документа</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#            <tr class="student-tr">#}
+{#				<td class="student-td">Тип образования</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#            <tr class="student-tr">#}
+{#				<td class="student-td">Медаль(наличие)</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#            <tr class="student-tr">#}
+{#				<td class="student-td">Год окончания</td>#}
+{#				<td class="student-td">Item 4</td>#}
+{#			</tr>#}
+{#		</table>#}
 	</div>
 {% endblock content %}

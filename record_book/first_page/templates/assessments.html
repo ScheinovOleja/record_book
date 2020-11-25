@@ -2,9 +2,8 @@
 {% load static %}
 
 {% block style %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style_info.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style_assessment.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style_assessments.css' %}">
 {% endblock style %}
 
 {% block title %}Оценки{% endblock title %}
@@ -13,72 +12,84 @@
 	<div class="container">
 		<section class="section">
 			<div class="container11">
-  <a1>Зачетная книжка</a1>
-</div>
-<div class="container6">
- <hr class="hr-shadow">
-</div>
+				<h1>Зачетная книжка</h1>
+			</div>
+			<div class="container6">
+				<hr class="hr-shadow">
+			</div>
+			<div class="container2">
+				<nav>
+					<a href="#">
+						<input id="submit" type="button" value="1 курс" class="btn btn-course"/>
+					</a>
+					<a href="#">
+						<input id="submit" type="button" value="2 курс" class="btn btn-course"/>
+					</a>
+					<a href="#">
+						<input id="submit" type="button" value="3 курс" class="btn btn-course"/>
+					</a>
+					<a href="#">
+						<input id="submit" type="button" value="4 курс" class="btn btn-course"/>
+					</a>
+				</nav>
+				<hr class="hr-shadow">
+			</div>
 
-<div class="container2">
-  <nav>
-    <a href="#" class="knopka">1 курс</a>
-    <a href="#" class="knopka">2 курс</a>
-    <a href="#" class="knopka">3 курс</a>
-    <a href="#" class="knopka">4 курс</a>
-  </nav>
-  <hr class="hr-shadow">
-</div>
+			<div class="container4">
+				<div class="container5">
+					<h2> I СЕМЕСТР </h2>
+				</div>
+				<table id="table">
+					<thead>
+					<tr>
+						<th class="cols">Название курса</th>
+						<th class="cols">Дата</th>
+						<th class="cols">Вид контроля</th>
+						<th class="cols">Оценка</th>
+						<th class="cols">Преподаватель</th>
+					</tr>
+					</thead>
+					<tbody>
+						{% if assessments.semester == 1 %}
+							<tr>
+								<th class="cols">{{ assessments.discipline }}</th>
+								<th class="cols">{{ assessments.date }}</th>
+								<th class="cols">{{ assessments.control }}</th>
+								<th class="cols">{{ assessments.assessment }}</th>
+								<th class="cols">{{ assessments.teacher }}</th>
+							</tr>
+						{% endif %}
+					</tbody>
 
-  <div class="container4">
-    <div class="container5">
-<h2> I СЕМЕСТР </h2>
-    </div>
-<table id="table">
-	<thead>
-		<tr>
-			<th class="col1">Название курса</th>
-			<th class="col2">Дата</th>
-			<th class="col3">Вид контроля</th>
-			<th class="col4">Оценка</th>
-      <th class="col5">Преподаватель</th>
-		</tr>
-    </thead>
-<tbody>
-    <tr>
-      <th class="col1">Английский</th>
-      <th class="col2">10.01.2020</th>
-      <th class="col3">Экзамен</th>
-      <th class="col4">4</th>
-      <th class="col5">Пееее</th>
-    </tr>
-</tbody>
-</table>
-</div>
- <div class="container4">
-    <div class="container5">
-<h2> II СЕМЕСТР </h2>
-    </div>
-<table id="table">
-	<thead>
-		<tr>
-			<th class="col1">Название курса</th>
-			<th class="col2">Дата</th>
-			<th class="col3">Вид контроля</th>
-			<th class="col4">Оценка</th>
-      <th class="col5">Преподаватель</th>
-		</tr>
-    </thead>
-<tbody>
-    <tr>
-      <th class="col1">Английский</th>
-      <th class="col2">10.01.2020</th>
-      <th class="col3">Экзамен</th>
-      <th class="col4">4</th>
-      <th class="col5">Пееее</th>
-    </tr>
-</tbody>
-</table>
-</div>
+				</table>
+			</div>
+			<div class="container4">
+				<div class="container5">
+					<h2> II СЕМЕСТР </h2>
+				</div>
+				<table id="table">
+					<thead>
+					<tr>
+						<th class="cols">Название курса</th>
+						<th class="cols">Дата</th>
+						<th class="cols">Вид контроля</th>
+						<th class="cols">Оценка</th>
+						<th class="cols">Преподаватель</th>
+					</tr>
+					</thead>
+					<tbody>
+						{% if assessments.semester == 2 %}
+							<tr>
+								<th class="cols">{{ assessments.discipline }}</th>
+								<th class="cols">{{ assessments.date }}</th>
+								<th class="cols">{{ assessments.control }}</th>
+								<th class="cols">{{ assessments.semester }}</th>
+								<th class="cols">{{ assessments.teacher }}</th>
+							</tr>
+						{% endif %}
+					</tbody>
+				</table>
+			</div>
 		</section>
 	</div>
 {% endblock content %}

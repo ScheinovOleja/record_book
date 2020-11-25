@@ -100,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EUROPE/MOSCOW'
 
 USE_I18N = True
 
@@ -118,3 +118,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']

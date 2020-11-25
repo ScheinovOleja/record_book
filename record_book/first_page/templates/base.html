@@ -6,7 +6,8 @@
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">{% endblock style %}
+	{% block style %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">{% endblock style %}
 	<title>{% block title %}Default title{% endblock title %}</title>
 </head>
 <body>
@@ -16,10 +17,20 @@
 			<div class="section menu">
 				<img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
 				<ul class="menu-ul">
-					<li class="menu-li"><a href="">Главная</a></li>
-					<li class="menu-li"><a href="#">Студент</a></li>
+					<li class="menu-li"><a href="{% url 'first_page' %}">Главная</a></li>
+					<li class="menu-li">
+						{% if user.is_authenticated %}
+							<a href="{% url 'student' user.userprofile.reg_num %}">Студент</a>
+						{% else %}
+							<a href="{% url 'first_page' %}">Студент</a>
+						{% endif %}
+					</li>
 					<li class="menu-li"><a href="#">Преподаватели</a></li>
 					<li class="menu-li"><a href="#">Предметы</a></li>
+					{% if user.is_authenticated %}
+						<li class="menu-li">Вы вошли как: {{ user.get_username }}</li>
+						<li class="menu-li"><a href="{% url 'logout' %}?next={{ request.path }}">Выйти?</a></li>
+					{% endif %}
 				</ul>
 			</div>
 		</div>

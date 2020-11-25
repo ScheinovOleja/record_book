@@ -7,13 +7,24 @@
 	<div class="container main-content">
 		<section class="section">
 			<h1 class="main-head">Портал Зачётка.РУ</h1>
-			<form action="{% url 'info' %}" method="get">
-				{% csrf_token %}
-				<button class="btn">
-					<div class="btn-content">ЛИЧНЫЙ КАБИНЕТ</div>
-					<div>РЕГИСТРАЦИЯ</div>
-				</button>
-			</form>
+			{% if user.is_authenticated %}
+				<li>
+					<a href="{% url 'info' user.userprofile.reg_num %}">
+						<button class="btn">
+							<div class="btn-content">Зачетная книжка</div>
+						</button>
+					</a>
+				</li>
+			{% else %}
+				<li>
+					<a href="{% url 'login' %}">
+						<button class="btn">
+							<div class="btn-content">ЛИЧНЫЙ КАБИНЕТ</div>
+							<div>РЕГИСТРАЦИЯ</div>
+						</button>
+					</a>
+				</li>
+			{% endif %}
 			<div class="main-text">
 				<p>Портал Зачётка.РУ обеспечивает:</p>
 				<ul>
