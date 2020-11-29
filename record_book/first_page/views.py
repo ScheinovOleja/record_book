@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views import View, generic
 
-from first_page.models import StudentBook, StudentInfo, UserProfile
+from first_page.models import StudentBook, StudentInfo, UserProfile, Teacher
 
 
 def login(request):
@@ -20,8 +20,11 @@ class Index(generic.View):
         self.queryset = StudentBook.objects.all()
 
     def get(self, request):
-        for e in self.userprofile:
-            return render(request, self.template_name, {self.context_object_name: self.queryset, 'userprofile': e})
+        if self.userprofile:
+            for e in self.userprofile:
+                return render(request, self.template_name, {self.context_object_name: self.queryset, 'userprofile': e})
+        else:
+            return render(request, self.template_name, {self.context_object_name: self.queryset})
 
 
 class AssessmentsInfo(generic.View):
@@ -50,3 +53,16 @@ class StudentsInfo(generic.View):
         context = StudentInfo.objects.filter(education_activity__reg_num=reg_num)
         for content in context:
             return render(request, self.template_name, {self.context_object_name: content})
+
+
+class TeachersInfo(generic.ListView):
+    model = Teacher
+    template_name = 'teachers.html'
+    context_object_name = 'teachers'
+    queryset = Teacher.objects.all()
+
+
+class TeacherDetail(generic.DetailView):
+    model = Teacher
+    template_name = 'teacher_detail.html'
+    context_object_name = 'teacher'

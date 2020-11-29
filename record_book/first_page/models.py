@@ -1,15 +1,11 @@
 from datetime import datetime
-
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django.utils import timezone
 from django.contrib.auth.models import User
 
-from record_book import settings
-
-
 # Create your models here.
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -27,10 +23,10 @@ class StudentBook(models.Model):
     student = models.ForeignKey('StudentInfo', null=True, on_delete=models.CASCADE,
                                 verbose_name='Студент')
     semester = models.IntegerField(default=0, verbose_name='Семестр')
-    discipline = models.ForeignKey('DisciplineInfo', null=True, on_delete=models.CASCADE,
+    discipline = models.ForeignKey('Discipline', null=True, on_delete=models.CASCADE,
                                    verbose_name='Дисциплина')
     date = models.DateField(verbose_name='Дата экзамена/зачета', default=datetime.now)
-    teacher = models.ForeignKey('TeacherInfo', null=True, on_delete=models.CASCADE,
+    teacher = models.ForeignKey('Teacher', null=True, on_delete=models.CASCADE,
                                 verbose_name='Учитель')
     control = models.ForeignKey('ControlInfo', null=True, on_delete=models.CASCADE,
                                 verbose_name='Вид контроля')
@@ -48,12 +44,12 @@ class StudentBook(models.Model):
 
 
 class EducationalActivities(models.Model):
-    reg_num = models.CharField(max_length=30, verbose_name='Регистрационный номер')
-    status = models.CharField(max_length=30, verbose_name='Статус')
-    category = models.CharField(max_length=30, verbose_name='Категория зачисления')
-    institute = models.CharField(max_length=150, verbose_name='Институт')
-    direction = models.CharField(max_length=150, verbose_name='Направление подготовки')
-    forms_study = models.CharField(max_length=30, verbose_name='Форма обучения')
+    reg_num = models.CharField(default='', max_length=30, verbose_name='Регистрационный номер')
+    status = models.CharField(default='', max_length=30, verbose_name='Статус')
+    category = models.CharField(default='', max_length=30, verbose_name='Категория зачисления')
+    institute = models.CharField(default='', max_length=150, verbose_name='Институт')
+    direction = models.CharField(default='', max_length=150, verbose_name='Направление подготовки')
+    forms_study = models.CharField(default='', max_length=30, verbose_name='Форма обучения')
     course = models.IntegerField(verbose_name='Курс', default=1)
     group = models.IntegerField(verbose_name='Группа', default=1)
     scholarship = models.BooleanField(verbose_name='Стипендия', default=True)
@@ -63,8 +59,8 @@ class EducationalActivities(models.Model):
 
 
 class StudentInfo(models.Model):
-    name = models.CharField(max_length=30, verbose_name='Имя')
     surname = models.CharField(max_length=30, verbose_name='Фамилия')
+    name = models.CharField(max_length=30, verbose_name='Имя')
     patronymic = models.CharField(max_length=30, verbose_name='Отчество')
     birthday = models.DateField(verbose_name='Дата рождения', default=None)
     sex = models.BooleanField(verbose_name='М/Ж', default=True)
@@ -77,16 +73,16 @@ class StudentInfo(models.Model):
         return f'{self.surname} {self.name} {self.patronymic}'
 
 
-class DisciplineInfo(models.Model):
+class Discipline(models.Model):
     discipline = models.CharField(default='', max_length=50, verbose_name='Дисциплина')
 
     def __str__(self):
         return self.discipline
 
 
-class TeacherInfo(models.Model):
-    name = models.CharField(default='', max_length=30, verbose_name='Имя')
+class Teacher(models.Model):
     surname = models.CharField(default='', max_length=30, verbose_name='Фамилия')
+    name = models.CharField(default='', max_length=30, verbose_name='Имя')
     patronymic = models.CharField(default='', max_length=30, verbose_name='Отчество')
 
     def __str__(self):

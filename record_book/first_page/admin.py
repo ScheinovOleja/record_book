@@ -5,10 +5,10 @@ from .models import UserProfile
 
 # Register your models here.
 
-from first_page.models import StudentBook, StudentInfo, ControlInfo, TeacherInfo, DisciplineInfo, EducationalActivities
+from first_page.models import StudentBook, StudentInfo, ControlInfo, Teacher, Discipline, EducationalActivities
 
 
-@admin.register(StudentBook, StudentInfo, ControlInfo, TeacherInfo, DisciplineInfo, EducationalActivities)
+@admin.register(StudentBook, StudentInfo, ControlInfo, Teacher, Discipline, EducationalActivities)
 class AdvertisementAdmin(admin.ModelAdmin):
     pass
 

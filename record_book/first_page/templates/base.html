@@ -19,15 +19,15 @@
 				<ul class="menu-ul">
 					<li class="menu-li"><a href="{% url 'first_page' %}">Главная</a></li>
 					<li class="menu-li">
-						{% if user.is_authenticated %}
+						{% if user.is_authenticated and not user.is_superuser %}
 							<a href="{% url 'student' user.userprofile.reg_num %}">Студент</a>
 						{% else %}
 							<a href="{% url 'first_page' %}">Студент</a>
 						{% endif %}
 					</li>
-					<li class="menu-li"><a href="#">Преподаватели</a></li>
+					<li class="menu-li"><a href="{% url 'teacher' %}">Преподаватели</a></li>
 					<li class="menu-li"><a href="#">Предметы</a></li>
-					{% if user.is_authenticated %}
+					{% if user.is_authenticated and not user.is_superuser %}
 						<li class="menu-li">Вы вошли как: {{ user.get_username }}</li>
 						<li class="menu-li"><a href="{% url 'logout' %}?next={{ request.path }}">Выйти?</a></li>
 					{% endif %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style_teachers.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block title %}Учителя{% endblock title %}
+
+{% block content %}
+	<section class="section">
+		{% for teacher in teachers %}
+			<ul class="teacher-ul">
+				<li class="teacher-li">
+					<a href="{% url 'teacher_detail' teacher.id %}">
+						{{ teacher.surname }} {{ teacher.name }} {{ teacher.patronymic }}
+					</a>
+				</li>
+			</ul>
+		{% endfor %}
+	</section>
+{% endblock content %}

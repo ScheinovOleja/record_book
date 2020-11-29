@@ -1,3 +1,7 @@
+html{
+    height: 100%;
+}
+
 a {
     text-decoration: none;
     color: #000;
@@ -13,13 +17,15 @@ body {
     font-weight: normal;
     font-size: 15px;
     color: #000;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 h4 {
     font-size: 17px;
     color: #1c1c1c;
 }
-
 
 
 .btn {
@@ -43,7 +49,7 @@ h4 {
 
 .container {
     width: 100%;
-    border-bottom: 1px solid #e4e4e4;
+    border-top: 1px solid #e4e4e4;
 }
 
 .section {
@@ -110,23 +116,23 @@ h4 {
     margin-left: 180px;
 }
 
-.footer-content{
+.footer-content {
     height: 120px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.footer-copyright{
+.footer-copyright {
     float: left;
 }
 
-.footer-content-ul{
+.footer-content-ul {
     display: flex;
     padding: 0;
     align-content: flex-start;
 }
 
-.footer-content-li:not(:first-child){
+.footer-content-li:not(:first-child) {
     margin-left: 15px;
 }

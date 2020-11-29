@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style_teachers.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block title %}Детальная информация{% endblock title %}
+
+{% block content %}
+	<section class="section">
+		<h1 class="personal-info">Личная информация</h1>
+			<ul class="teacher-ul">
+				<li class="teacher-li">
+					 ФИО - {{ teacher.surname }} {{ teacher.name }} {{ teacher.patronymic }}
+				</li>
+			</ul>
+	</section>
+{% endblock content %}

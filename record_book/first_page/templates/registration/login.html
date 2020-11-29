@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	{% if form.errors %}
-		<p>Ваше имя пользователя и пароль не совпадают</p>
-	{% endif %}
-
-	{% if next %}
-		{% if user.is_authenticated %}
-			<p>У вашей учетной записи нет доступа к этой странице. Войдите с учетной записью, у которой есть доступ.</p>
-		{% else %}
-			<p>Пожалуйста, войдите, чтобы иметь доступ к страницам сайта</p>
+	<section class="section">
+		{% if form.errors %}
+			<p>Ваше имя пользователя и пароль не совпадают</p>
 		{% endif %}
-	{% endif %}
 
-	<form method="post" action="{% url 'login' %}">
-		{% csrf_token %}
-		<table>
+		{% if next %}
+			{% if user.is_authenticated %}
+				<p>У вашей учетной записи нет доступа к этой странице. Войдите с учетной записью, у которой есть
+					доступ.</p>
+			{% else %}
+				<p>Пожалуйста, войдите, чтобы иметь доступ к страницам сайта</p>
+			{% endif %}
+		{% endif %}
 
-			<tr>
-				<td>{{ form.username.label_tag }}</td>
-				<td>{{ form.username }}</td>
-			</tr>
+		<form method="post" action="{% url 'login' %}">
+			{% csrf_token %}
+			<table>
 
-			<tr>
-				<td>{{ form.password.label_tag }}</td>
-				<td>{{ form.password }}</td>
-			</tr>
-		</table>
+				<tr>
+					<td>{{ form.username.label_tag }}</td>
+					<td>{{ form.username }}</td>
+				</tr>
 
-		<input type="submit" class="btn" value="Войти"/>
-		<input type="hidden" name="next" value="{{ next }}"/>
-	</form>
+				<tr>
+					<td>{{ form.password.label_tag }}</td>
+					<td>{{ form.password }}</td>
+				</tr>
+			</table>
 
-	{# Assumes you setup the password_reset view in your URLconf #}
-	<p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+			<input type="submit" class="btn" value="Войти"/>
+			<input type="hidden" name="next" value="{{ next }}"/>
+		</form>
 
+		{# Assumes you setup the password_reset view in your URLconf #}
+		<p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+	</section>
 {% endblock content %}
 
 {% include footer %}

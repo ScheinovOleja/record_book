@@ -128,4 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .idea/
-record_book_venv/
+venv_record_book/
